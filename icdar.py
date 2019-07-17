@@ -102,7 +102,7 @@ def check_and_validate_polys(polys, tags, xxx_todo_changeme):
         p_area = polygon_area(poly)
         if abs(p_area) < 1:
             # print poly
-            print('invalid poly')
+            print('invalid poly'poly)
             continue
         if p_area > 0:
             print('poly in wrong direction')
