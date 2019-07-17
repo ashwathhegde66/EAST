@@ -90,7 +90,7 @@ def check_and_validate_polys(polys, tags, xxx_todo_changeme):
     :param tags:
     :return:
     '''
-    (h, w) = xxx_todo_changeme
+    (h, w) = (600,600)##xxx_todo_changeme
     if polys.shape[0] == 0:
         return polys
     print(polys)
