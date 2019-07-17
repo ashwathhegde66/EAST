@@ -608,7 +608,7 @@ def generator(input_size=512, batch_size=32,
                     continue
 
                 text_polys, text_tags = load_annoataion(txt_fn)
-                print(txt_fn,text_polys)
+                #print(txt_fn,text_polys)
                 text_polys, text_tags = check_and_validate_polys(text_polys, text_tags, (h, w))
                 # if text_polys.shape[0] == 0:
                 #     continue
