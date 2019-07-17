@@ -93,6 +93,7 @@ def check_and_validate_polys(polys, tags, xxx_todo_changeme):
     (h, w) = xxx_todo_changeme
     if polys.shape[0] == 0:
         return polys
+    print(polys)
     polys[:, :, 0] = np.clip(polys[:, :, 0], 0, w-1)
     polys[:, :, 1] = np.clip(polys[:, :, 1], 0, h-1)
 
@@ -102,7 +103,7 @@ def check_and_validate_polys(polys, tags, xxx_todo_changeme):
         p_area = polygon_area(poly)
         if abs(p_area) < 1:
             # print poly
-            print('invalid poly',poly)
+            print('invalid poly')
             continue
         if p_area > 0:
             print('poly in wrong direction')
@@ -607,7 +608,7 @@ def generator(input_size=512, batch_size=32,
                     continue
 
                 text_polys, text_tags = load_annoataion(txt_fn)
-                print(txt_fn)
+                print(txt_fn,text_polys)
                 text_polys, text_tags = check_and_validate_polys(text_polys, text_tags, (h, w))
                 # if text_polys.shape[0] == 0:
                 #     continue
