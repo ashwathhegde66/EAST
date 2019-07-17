@@ -90,10 +90,9 @@ def check_and_validate_polys(polys, tags, xxx_todo_changeme):
     :param tags:
     :return:
     '''
-    (h, w) = (600,600)##xxx_todo_changeme
+    (h, w) = xxx_todo_changeme
     if polys.shape[0] == 0:
         return polys
-    print(polys)
     polys[:, :, 0] = np.clip(polys[:, :, 0], 0, w-1)
     polys[:, :, 1] = np.clip(polys[:, :, 1], 0, h-1)
 
