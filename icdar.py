@@ -714,6 +714,7 @@ def generator(input_size=512, batch_size=32,
                     geo_maps = []
                     training_masks = []
             except Exception as e:
+                print(image_list[i])
                 import traceback
                 traceback.print_exc()
                 continue
