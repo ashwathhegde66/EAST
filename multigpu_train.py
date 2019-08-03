@@ -70,6 +70,7 @@ def average_gradients(tower_grads):
 
 
 def main(argv=None):
+    fh=open("a.txt",'a')
     import os
     os.environ['CUDA_VISIBLE_DEVICES'] = FLAGS.gpu_list
     if not tf.gfile.Exists(FLAGS.checkpoint_path):
@@ -168,7 +169,7 @@ def main(argv=None):
                 start = time.time()
                 print('Step {:06d}, model loss {:.4f}, total loss {:.4f}, {:.2f} seconds/step, {:.2f} examples/second'.format(
                     step, ml, tl, avg_time_per_step, avg_examples_per_second))
-
+                fh.write("model loss: "+str(ml)+"   total loss: "+str(tl)+ "    avg_time_per_step: "+str(avg_time_per_step)+'\n')
             if step % FLAGS.save_checkpoint_steps == 0:
                 saver.save(sess, FLAGS.checkpoint_path + 'model.ckpt', global_step=global_step)
 
@@ -178,6 +179,7 @@ def main(argv=None):
                                                                                              input_geo_maps: data[3],
                                                                                              input_training_masks: data[4]})
                 summary_writer.add_summary(summary_str, global_step=step)
+    fh.close()
 
 if __name__ == '__main__':
     tf.app.run()
