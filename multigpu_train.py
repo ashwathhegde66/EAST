@@ -70,7 +70,7 @@ def average_gradients(tower_grads):
 
 
 def main(argv=None):
-    fh=open("a.txt",'a')
+    fh=open("steps_time.txt",'a')
     import os
     os.environ['CUDA_VISIBLE_DEVICES'] = FLAGS.gpu_list
     if not tf.gfile.Exists(FLAGS.checkpoint_path):
