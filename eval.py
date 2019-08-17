@@ -145,7 +145,6 @@ def main(argv=None):
         with tf.Session(config=tf.ConfigProto(allow_soft_placement=True)) as sess:
             ckpt_state = tf.train.get_checkpoint_state(FLAGS.checkpoint_path)
             model_path = os.path.join(FLAGS.checkpoint_path, os.path.basename(ckpt_state.model_checkpoint_path))
-            model_path="/content/EAST/40k_steps/model.ckpt-30302"
             print('Restore from {}'.format(model_path))
             saver.restore(sess, model_path)
 
